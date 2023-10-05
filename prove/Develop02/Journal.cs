@@ -17,7 +17,7 @@ public class Journal
     {
         Console.WriteLine();
         Console.WriteLine("1. Display latest entry");
-        Console.WriteLine("2. Display from loaded file\n");
+        Console.Write("2. Display from loaded file\n" );
         string displayPrompt = Console.ReadLine();
         int displayPromptIndex = int.Parse(displayPrompt);
         
@@ -27,12 +27,14 @@ public class Journal
             if (_entries.Count == 0) 
                  {
                     Console.WriteLine("Latest entry has been saved. Refer to 'Display from loaded file");
+                    Console.WriteLine();
                 }
 
             else 
             {
                 foreach (Entry entries in _entries) 
                     {
+                        Console.WriteLine();
                         entries.DisplayEntry();
                     }
             }
