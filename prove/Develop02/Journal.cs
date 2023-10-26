@@ -85,7 +85,7 @@ public class Journal
     public List<Entry> LoadFile ()
     {
 
-        
+
         List<Entry> loadEntry = new();
         
         string[] lines = System.IO.File.ReadAllLines(_loadFileName);

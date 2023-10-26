@@ -5,6 +5,7 @@ public class Scriptures
 {
     private Reference _scripture;
     private List<Word> _texts;
+    
 
 
 
@@ -109,6 +110,7 @@ public class Scriptures
         }
     }
 
+    
 
 
 

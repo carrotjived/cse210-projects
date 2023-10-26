@@ -27,6 +27,7 @@ public class Fraction {
     public void SetTop(int numerator) {
         _top = numerator;
     }
+
     public int GetBottom() {
         return _bottom;
     }
