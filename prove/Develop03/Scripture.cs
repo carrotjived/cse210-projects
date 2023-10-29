@@ -105,7 +105,7 @@ public class Scriptures
             }
             else
             {
-                Console.Write(words.GetText() + " ");
+                Console.Write(words.DisplayWord() + " ");
             }
         }
     }

@@ -22,4 +22,9 @@ public class Word {
    {
     return _text;
    }
+
+   public string DisplayWord()
+   {
+      return $"{GetText()}";
+   }
 }
