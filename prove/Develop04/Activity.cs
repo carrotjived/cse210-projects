@@ -4,13 +4,15 @@ public class Activity
     private int _duration;
     private string _description;
 
+    
+
     public Activity(int prompt)
     {
         SetActivity(prompt);
     }
 
     public Activity(int prompt, int duration)
-    {   
+    {
         SetActivity(prompt);
         SetDuration(duration);
     }
@@ -63,7 +65,7 @@ public class Activity
 
         Console.WriteLine($"You have completed another {GetDuration()} seconds of the {GetActivityName()}");
         StringSpinner();
-        
+
     }
 
     public int GetDuration()
@@ -77,9 +79,16 @@ public class Activity
     }
 
 
-    public void RunActivity(){
-        if (GetActivityName() == "Breathing Activity"){
+    public void RunActivity()
+    {
+        if (GetActivityName() == "Breathing Activity")
+        {
             BreathingActivity breathingActivity = new(GetDuration());
+            DisplayEndingMessage();
+        }
+        if (GetActivityName() == "Reflecting Activity")
+        {
+            ReflectingActivity reflectingActivity = new(GetDuration());
             DisplayEndingMessage();
         }
     }
@@ -93,6 +102,10 @@ public class Activity
             "/",
             "-",
             "\\",
+             "|",
+            "/",
+            "-",
+            "\\"
 
 
         };
@@ -115,13 +128,22 @@ public class Activity
             Console.Write("\b \b");
         }
     }
-    public static void DotCountdown()
+    public static void DotCountdown(int a)
     {
-        for (int i = 5; i >= 0; i--)
+        for (int i = a; i >= 0; i--)
         {
             Console.Write('.');
             Thread.Sleep(1000);
         }
     }
+
+    public DateTime GetStartTime() 
+    {
+        DateTime start = DateTime.Now;
+        return start;
+    }
+
+   
+    
 }
 
