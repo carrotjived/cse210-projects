@@ -35,6 +35,7 @@ class Program
 
                 string durationString = Console.ReadLine();
                 int duration = int.Parse(durationString);
+                
                 Activity specificActivity = new(prompt, duration);
                 specificActivity.RunActivity();
 
