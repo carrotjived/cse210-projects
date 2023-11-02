@@ -44,14 +44,14 @@ public class ReflectingActivity : Activity
 
         
        
-        DateTime end = GetStartTime().AddSeconds(duration);
+        DateTime end = StartTime().AddSeconds(duration);
 
         List<string> question = AvailableQuestions();
-        while (GetStartTime() < end)
+        while (DateTime.Now < end)
         {
             
             DisplayQuestions(question);
-            DotCountdown(2);
+            DotCountdown(9);
             Console.Write("\n");
         }
 

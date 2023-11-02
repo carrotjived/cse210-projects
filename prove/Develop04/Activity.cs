@@ -63,7 +63,7 @@ public class Activity
         Console.WriteLine("Well done!!");
         StringSpinner();
 
-        Console.WriteLine($"You have completed another {GetDuration()} seconds of the {GetActivityName()}");
+        Console.WriteLine($"\nYou have completed another {GetDuration()} seconds of the {GetActivityName()}");
         StringSpinner();
 
     }
@@ -91,6 +91,11 @@ public class Activity
             ReflectingActivity reflectingActivity = new(GetDuration());
             DisplayEndingMessage();
         }
+        if (GetActivityName() == "Listing Activity") 
+        {
+            ListingActivity listingActivity = new(GetDuration());
+            DisplayEndingMessage();
+        }
     }
 
     //Animation
@@ -113,7 +118,7 @@ public class Activity
         foreach (string a in spinnerString)
         {
             Console.Write(a);
-            Thread.Sleep(500);
+            Thread.Sleep(250);
             Console.Write("\b \b");
         }
 
@@ -137,12 +142,12 @@ public class Activity
         }
     }
 
-    public DateTime GetStartTime() 
+    public DateTime StartTime()
     {
-        DateTime start = DateTime.Now;
-        return start;
+        DateTime a = DateTime.Now;
+        return a;
     }
-
+    
    
     
 }
