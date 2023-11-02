@@ -16,6 +16,10 @@ class Program
             Console.WriteLine(" 4. Quit");
             Console.Write("Select a choice from the menu: ");
             string stringPrompt = Console.ReadLine();
+            
+             if (stringPrompt == ""){
+                stringPrompt = Console.ReadLine();
+             }
             int prompt = int.Parse(stringPrompt);
 
             if (prompt == 4)
