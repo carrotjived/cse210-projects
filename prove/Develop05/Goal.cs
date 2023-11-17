@@ -1,38 +1,49 @@
-public class Goal
+using System.IO;
+public abstract class Goal
 {
     private string _name;
-    private int _points = 0;
-    private List<string> _goals;
     private string _description;
+    private int _totalPoints;
 
-    private bool _isComplete;
-    private int bonus = 0;
 
-    public Goal(string name, string description, int points)
+    
+
+    public Goal(string name, string description)
     {
         _name = name;
         _description = description;
-        _points = points;
     }
 
+    public abstract void RecordEvent();
+    public abstract bool IsComplete();
+    public int GetTotalPoints(){
+        return _totalPoints;
+    }
+    public void SetTotalPoints(int points)
+    {
+        _totalPoints = points;
+    }
 
-    public int DisplayStatus()
+    public string GetName()
     {
-        return _points;
-    }
-    public virtual void RecordEvent()
-    {
-        _points = 0;
+        return _name;
     }
 
-    public virtual bool IsComplete()
+    public string GetDescription()
     {
-        return _isComplete = true;
+        return _description;
     }
+    public void UpdatePoints(int points)
+    {
+        _totalPoints += points;
+    }
+
+    public abstract string TempString();
+
+    
 
     
 }
-
 
 
 
