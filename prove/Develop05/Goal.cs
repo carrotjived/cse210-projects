@@ -1,17 +1,41 @@
-public class Goal {
+public class Goal
+{
     private string _name;
-    private string _status;
-    private int _points;
+    private int _points = 0;
     private List<string> _goals;
     private string _description;
 
-    public string DisplayStatus()
+    private bool _isComplete;
+    private int bonus = 0;
+
+    public Goal(string name, string description, int points)
     {
-        return _status;
+        _name = name;
+        _description = description;
+        _points = points;
     }
 
+
+    public int DisplayStatus()
+    {
+        return _points;
+    }
     public virtual void RecordEvent()
     {
-
+        _points = 0;
     }
+
+    public virtual bool IsComplete()
+    {
+        return _isComplete = true;
+    }
+
+    
 }
+
+
+
+
+
+
+
