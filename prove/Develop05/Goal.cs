@@ -1,27 +1,45 @@
 using System.IO;
-public abstract class Goal
+public class Goal
 {
     private string _name;
     private string _description;
-    private int _totalPoints;
+   
+    private bool _isComplete = false;
+    private int _points;
+
 
 
     
-
-    public Goal(string name, string description)
+    
+    
+    public Goal(string name, string description, int points)
     {
         _name = name;
         _description = description;
+        _points = points;
     }
 
-    public abstract void RecordEvent();
-    public abstract bool IsComplete();
-    public int GetTotalPoints(){
-        return _totalPoints;
-    }
-    public void SetTotalPoints(int points)
+    public virtual int RecordEvent()
     {
-        _totalPoints = points;
+        int recordPoints = 0;
+        return recordPoints;
+    }
+    public virtual string Complete()
+    {
+        string sign = "";
+        return sign;
+    }
+    public virtual bool IsComplete()
+    {
+        return _isComplete;
+    }
+
+   
+    
+    
+    public int GetPoints()
+    {
+        return _points;
     }
 
     public string GetName()
@@ -33,12 +51,17 @@ public abstract class Goal
     {
         return _description;
     }
-    public void UpdatePoints(int points)
+    
+
+    public virtual string TempString()
     {
-        _totalPoints += points;
+        return "";
     }
 
-    public abstract string TempString();
+    public virtual string GetStringPresentation()
+    {
+        return "";
+    }
 
     
 

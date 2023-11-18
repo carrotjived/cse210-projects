@@ -1,26 +1,35 @@
 public class SimpleGoals : Goal
 {
-    private int _points;
-    private bool _isComplete = false;
-
-
-    public SimpleGoals(string name, string description, int points) : base(name, description)
+   
+    private bool _isComplete;
+    public SimpleGoals(string name, string description, int points, bool isComplete) : base(name, description, points)
     {
-        _points = points;
+       _isComplete = isComplete;
     }
 
-    public override void RecordEvent()
+    public override int RecordEvent()
     {
-        Console.WriteLine($"Congratulations! You have earned {_points} points!");
-        UpdatePoints(_points);
-        Console.WriteLine($"You now have {GetTotalPoints()}");
+        int points = 0;
+
+        Console.WriteLine($"Congratulations! You have earned {GetPoints()} points!\n");
+        points = GetPoints();
+        Complete();
+
+        return points;
+        
 
     }
 
-    public override bool IsComplete()
+     public override string Complete()
     {
         _isComplete = true;
+        string sign = "X";
+        return sign;
+    }
+    public override bool IsComplete()
+    {
         return _isComplete;
+        
 
     }
 
@@ -28,5 +37,9 @@ public class SimpleGoals : Goal
     {
         string represent = $"{GetName()} ({GetDescription()})";
         return represent;
+    }
+    public override string GetStringPresentation()
+    {
+        return $"Simple Goal||{GetName()}||{GetDescription()}||{GetPoints()}||{_isComplete}";
     }
 }

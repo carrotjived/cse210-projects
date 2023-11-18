@@ -1,28 +1,43 @@
 public class EternalGoals : Goal
 {
-    private int _points;
+
     private bool _isComplete = false;
 
-    public EternalGoals(string name, string description, int points) : base(name, description)
+    public EternalGoals(string name, string description, int points) : base(name, description, points)
     {
-        _points = points;
+
     }
 
-    public override void RecordEvent()
+    public override int RecordEvent()
     {
-       Console.WriteLine($"Congratulations! You have earned {_points} points!");
-        UpdatePoints(_points);
-        Console.WriteLine($"You now have {GetTotalPoints()}");
-    }
+        int points = 0;
+        Console.WriteLine($"Congratulations! You have earned {GetPoints()} points!\n");
+        points = GetPoints();
+        Complete();
+        return points;
 
-    public override bool IsComplete()
+
+
+    }
+    public override string Complete()
     {
         _isComplete = true;
-        return _isComplete;
+        string sign = "X";
+        return sign;
     }
-     public override string TempString()
+    public override bool IsComplete()
+    {
+        return _isComplete;
+
+    }
+    public override string TempString()
     {
         string represent = $"{GetName()} ({GetDescription()})";
         return represent;
+    }
+
+    public override string GetStringPresentation()
+    {
+        return $"Eternal Goal||{GetName()}||{GetDescription()}||{GetPoints()}";
     }
 }
