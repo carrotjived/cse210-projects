@@ -10,10 +10,10 @@ public class Tracker
     private int _level = 1;
 
 
-    // public void CalculateTotalPoints()
-    // {
-    //     _totalPoints += 
-    // }
+    public void CalculateTotalPoints(int points)
+    {
+        _totalPoints += points;
+    }
     public int GetTotalPoints()
     {
         return _totalPoints;
@@ -149,7 +149,7 @@ public class Tracker
             if (_goals[prompt].IsComplete() == false)
             {
                 int points = _goals[prompt].RecordEvent();
-                _totalPoints += points;
+                CalculateTotalPoints(points);
 
             }
             else
@@ -269,4 +269,6 @@ public class Tracker
     {
         return _levelcap;
     }
+
+   
 }
