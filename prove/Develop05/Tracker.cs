@@ -3,13 +3,21 @@ public class Tracker
 
     private List<Goal> _goals = new();
     private int _totalPoints = 0;
-    private bool _status;
-    private int _index;
+    private bool _status = false;
+    private int _index = 0;
     private int _levelcap = 1000;
 
     private int _level = 1;
 
 
+    public int GetIndex()
+    {
+        return _index;
+    }
+    public bool GetStat()
+    {
+        return _status;
+    }
     public void CalculateTotalPoints(int points)
     {
         _totalPoints += points;
@@ -75,7 +83,7 @@ public class Tracker
 
                 else if (parts[0] == "Eternal Goal")
                 {
-                    EternalGoals newEternal = new(parts[1], parts[2], Convert.ToInt32(parts[3]));
+                    EternalGoals newEternal = new(parts[1], parts[2], Convert.ToInt32(parts[3]), Convert.ToBoolean(parts[4]));
                     _goals.Add(newEternal);
                 }
 
@@ -110,8 +118,9 @@ public class Tracker
         int count = 1;
         foreach (Goal goalDisplay in _goals)
         {
-            if (goalDisplay.IsComplete() == true)
+            if (goalDisplay.GetStatus() == true)
             {
+
                 Console.WriteLine($"   {count}. [{goalDisplay.Complete()}] {goalDisplay.TempString()}");
                 count++;
             }
@@ -146,7 +155,7 @@ public class Tracker
         }
         else
         {
-            if (_goals[prompt].IsComplete() == false)
+            if (_goals[prompt].GetStatus() == false)
             {
                 int points = _goals[prompt].RecordEvent();
                 CalculateTotalPoints(points);
@@ -177,12 +186,12 @@ public class Tracker
             Console.Write("How much points is the goal associated with? ");
             string stringPoint = Console.ReadLine();
             int pointGoal = int.Parse(stringPoint);
-            _status = false;
+            GetStat();
             Console.Write("\n");
 
             if (prompt == 1)
             {
-                SimpleGoals simple = new(nameGoal, descriptionGoal, pointGoal, _status);
+                SimpleGoals simple = new(nameGoal, descriptionGoal, pointGoal, GetStat());
                 AddGoals(simple);
 
 
@@ -190,7 +199,7 @@ public class Tracker
             }
             if (prompt == 2)
             {
-                EternalGoals eternal = new(nameGoal, descriptionGoal, pointGoal);
+                EternalGoals eternal = new(nameGoal, descriptionGoal, pointGoal, GetStat());
                 AddGoals(eternal);
             }
 
@@ -215,12 +224,12 @@ public class Tracker
             Console.Write("How much is the bonus points? ");
             string bonusString = Console.ReadLine();
             int bonusPoint = int.Parse(bonusString);
-            _status = false;
-            _index = 0;
+            GetStat();
+            GetIndex();
 
             Console.Write("\n");
 
-            CheckListGoals checkList = new(nameGoal, descriptionGoal, pointGoal, repeat, bonusPoint, _index, _status);
+            CheckListGoals checkList = new(nameGoal, descriptionGoal, pointGoal, repeat, bonusPoint, GetIndex(), GetStat());
             AddGoals(checkList);
         }
     }
@@ -251,8 +260,8 @@ public class Tracker
         {
             Console.WriteLine("You have gained a level!");
             _level++;
-            _totalPoints-=_levelcap;
-            _levelcap+=250;
+            _totalPoints -= _levelcap;
+            _levelcap += 250;
         }
         Console.WriteLine($"Level {_level}");
 
@@ -270,5 +279,5 @@ public class Tracker
         return _levelcap;
     }
 
-   
+
 }

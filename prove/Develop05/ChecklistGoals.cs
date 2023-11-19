@@ -4,14 +4,13 @@ public class CheckListGoals : Goal
     private int _repeat;
     private int _bonus;
     private int _index;
-    private bool _isComplete;
 
-    public CheckListGoals(string name, string description, int points, int repeat, int bonus, int index, bool isComplete) : base(name, description, points)
+
+    public CheckListGoals(string name, string description, int points, int repeat, int bonus, int index, bool isComplete) : base(name, description, points, isComplete)
     {
 
         _repeat = repeat;
         _bonus = bonus;
-        _isComplete = isComplete;
         _index = index;
 
     }
@@ -26,9 +25,10 @@ public class CheckListGoals : Goal
 
         if (_index == _repeat)
         {
-            Console.WriteLine($"Congratulations! You have earned {_bonus} bonus points!");
+            Console.WriteLine("\nCongratulations! You have reached the milestone!");
+            Console.WriteLine($"You have earned {_bonus} bonus points!\n");
             points += _bonus;
-            Complete();
+            SetStatus(IsComplete());
 
 
 
@@ -41,19 +41,21 @@ public class CheckListGoals : Goal
     {
         _index += 1;
     }
-    
 
-    public override string Complete()
+
+     public override string Complete()
     {
-        _isComplete = true;
+
         string sign = "X";
         return sign;
     }
     public override bool IsComplete()
     {
-        return _isComplete;
-
+        bool isComplete = GetStatus();
+        isComplete = true;
+        return isComplete;
     }
+    
 
     public override string TempString()
     {
@@ -63,6 +65,6 @@ public class CheckListGoals : Goal
 
     public override string GetStringPresentation()
     {
-        return $"Checklist Goal||{GetName()}||{GetDescription()}||{GetPoints()}||{_repeat}||{_bonus}||{_index}||{_isComplete}";
+        return $"Checklist Goal||{GetName()}||{GetDescription()}||{GetPoints()}||{_repeat}||{_bonus}||{_index}||{GetStatus()}";
     }
 }

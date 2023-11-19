@@ -1,10 +1,10 @@
 public class SimpleGoals : Goal
 {
    
-    private bool _isComplete;
-    public SimpleGoals(string name, string description, int points, bool isComplete) : base(name, description, points)
+    
+    public SimpleGoals(string name, string description, int points, bool isComplete) : base(name, description, points, isComplete)
     {
-       _isComplete = isComplete;
+     
     }
 
     public override int RecordEvent()
@@ -13,7 +13,7 @@ public class SimpleGoals : Goal
 
         Console.WriteLine($"Congratulations! You have earned {GetPoints()} points!\n");
         points = GetPoints();
-        Complete();
+        SetStatus(IsComplete());
 
         return points;
         
@@ -22,16 +22,21 @@ public class SimpleGoals : Goal
 
      public override string Complete()
     {
-        _isComplete = true;
+
         string sign = "X";
         return sign;
     }
     public override bool IsComplete()
     {
-        return _isComplete;
+        bool isComplete = GetStatus();
+        isComplete = true;
+        return isComplete;
+    }
+    
+        
         
 
-    }
+    
 
     public override string TempString()
     {
@@ -40,6 +45,6 @@ public class SimpleGoals : Goal
     }
     public override string GetStringPresentation()
     {
-        return $"Simple Goal||{GetName()}||{GetDescription()}||{GetPoints()}||{_isComplete}";
+        return $"Simple Goal||{GetName()}||{GetDescription()}||{GetPoints()}||{GetStatus()}";
     }
 }
