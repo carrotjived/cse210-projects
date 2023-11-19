@@ -3,7 +3,7 @@ public class EternalGoals : Goal
 
     
 
-    public EternalGoals(string name, string description, int points, bool isComplete) : base(name, description, points, isComplete)
+    public EternalGoals(string name, string description, int points, bool status) : base(name, description, points, status)
     {
 
     }

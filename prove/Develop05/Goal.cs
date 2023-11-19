@@ -4,7 +4,7 @@ public class Goal
     private string _name;
     private string _description;
    
-    private bool _isComplete = false;
+    private bool _status = false;
     private int _points;
 
 
@@ -12,12 +12,12 @@ public class Goal
     
     
     
-    public Goal(string name, string description, int points,bool isComplete)
+    public Goal(string name, string description, int points,bool status)
     {
         _name = name;
         _description = description;
         _points = points;
-        _isComplete = isComplete;
+        _status = status;
     }
 
     public virtual int RecordEvent()
@@ -27,7 +27,7 @@ public class Goal
     }
     public virtual string Complete()
     {   
-        
+
         string sign = "";
         return sign;
     }
@@ -39,13 +39,13 @@ public class Goal
 
     public bool GetStatus()
     {
-        return _isComplete;
+        return _status;
 
     }
 
     public void SetStatus(bool status)
     {
-        _isComplete = status;
+        _status = status;
     }
    
     

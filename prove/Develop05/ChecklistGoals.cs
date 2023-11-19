@@ -6,7 +6,7 @@ public class CheckListGoals : Goal
     private int _index;
 
 
-    public CheckListGoals(string name, string description, int points, int repeat, int bonus, int index, bool isComplete) : base(name, description, points, isComplete)
+    public CheckListGoals(string name, string description, int points, int repeat, int bonus, int index, bool status) : base(name, description, points, status)
     {
 
         _repeat = repeat;
