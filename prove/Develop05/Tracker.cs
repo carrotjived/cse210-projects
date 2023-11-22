@@ -245,7 +245,7 @@ public class Tracker
         Console.Write("Select a choice from the menu: ");
     }
 
-    public void GoalType()
+    public void  GoalType()
     {
         Console.WriteLine("The types of Goals are: ");
         Console.WriteLine("   1. Simple Goal");

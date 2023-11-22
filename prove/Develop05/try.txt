@@ -1,0 +1,6 @@
+5556
+42
+11250
+Eternal Goal||temple||temple||500||False
+Checklist Goal||read scriptures||read scriptures for 14 minutes||500||5||2500||3||False
+Checklist Goal||adf||adsf||56||1||250000||1||True
