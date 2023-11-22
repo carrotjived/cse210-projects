@@ -15,8 +15,8 @@ class Program
         Customer firstCustomer = new("Harry Potter", "Number 12 Grimmauld Place", "Islington", "London", "United Kingdom");
         Order firstOrder = new(productsFirst, firstCustomer);
         Console.WriteLine("Products in order: ");
-        firstOrder.GetPackingLabel();
-        firstOrder.GetShippingLabel();
+        firstOrder.DisplayPackingLabel();
+        firstOrder.DisplayShippingLabel();
         Console.WriteLine($"Total of: {firstOrder.TotalPrice()}\n");
 
         List<Product> productsSecond = new();
@@ -31,8 +31,8 @@ class Program
         Customer secondCustomer = new("Percy Jackson", "3.141 Farm Road Montauk", "New York City", "New York", "United States of America");
         Order secondOrder = new(productsSecond, secondCustomer);
         Console.WriteLine("Products in order: ");
-        secondOrder.GetPackingLabel();
-        secondOrder.GetShippingLabel();
+        secondOrder.DisplayPackingLabel();
+        secondOrder.DisplayShippingLabel();
         Console.WriteLine($"Total of: {secondOrder.TotalPrice()}");
     }
 }

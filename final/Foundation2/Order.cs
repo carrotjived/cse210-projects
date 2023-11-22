@@ -28,7 +28,7 @@ public class Order{
         return $"${finalPrice}";
     }
 
-    public void GetPackingLabel()
+    public void DisplayPackingLabel()
     {
         foreach(Product product in _product)
         {   
@@ -36,7 +36,7 @@ public class Order{
         }
     }
 
-    public void GetShippingLabel()
+    public void DisplayShippingLabel()
     {
         Console.WriteLine(_customer.GetCustomerDetails());
     }
