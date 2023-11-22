@@ -26,7 +26,7 @@ public class Video {
 
     }
 
-    public void ShowVideo()
+    public void ShowVideoComments()
     {
         Console.WriteLine($"\nTitle: {_title} - Length: {_length} seconds by {_author}\nNumber of Comments: {GetTotalComments(_comments)}");
         Console.WriteLine("\nComments: ");
