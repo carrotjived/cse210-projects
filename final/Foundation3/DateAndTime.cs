@@ -1,4 +1,5 @@
-public class DateAndTime{
+public class DateAndTime
+{
     private int _day;
     private string _month;
     private int _year;
@@ -16,6 +17,16 @@ public class DateAndTime{
 
     public string GetDateTime()
     {
-        return $"{_day} {_month} {_year} - {_hour} {_minute}";
+        if (_minute == 0)
+        {
+
+            return $"{_day} {_month} {_year} - {_hour}:00";
+        }
+        else
+        {
+
+            return $"{_day} {_month} {_year} - {_hour}:{_minute}";
+        }
+
     }
 }

@@ -7,9 +7,9 @@ public class Event
 
     private string _eventType;
 
-    public Event(string eventType, string eventTitle, string description, string street, string city, string stateProvince, string country, int day, string month, int year, int hour, int minute)
+    public Event(string eventTitle, string description, string street, string city, string stateProvince, string country, int day, string month, int year, int hour, int minute)
     {
-        _eventType = eventType;
+       
         _eventTitle = eventTitle;
         _description = description;
         _address = new(street, city, stateProvince, country);
@@ -40,6 +40,11 @@ public class Event
     public string GetEventType()
     {
         return _eventType;
+    }
+
+    public void SetEventType(string eventTYpe)
+    {
+        _eventType = eventTYpe;
     }
 
 }
