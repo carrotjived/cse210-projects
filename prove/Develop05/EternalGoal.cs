@@ -23,7 +23,7 @@ public class EternalGoals : Goal
      public override string Complete()
     {
 
-        string sign = "X";
+        string sign = "";
         return sign;
     }
     public override bool IsComplete()
