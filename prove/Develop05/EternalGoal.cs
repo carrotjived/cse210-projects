@@ -13,7 +13,7 @@ public class EternalGoals : Goal
         int points = 0;
         Console.WriteLine($"Congratulations! You have earned {GetPoints()} points!\n");
         points = GetPoints();
-        SetStatus(IsComplete());
+        
 
         return points;
 
