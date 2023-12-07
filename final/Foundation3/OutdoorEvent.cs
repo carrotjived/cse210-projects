@@ -9,23 +9,17 @@ public class OutdoorEvent : Event
         SetEventType("Outdoor Event");
     }
 
-    public void OutdoorStandardDetails()
-    {
-        Console.WriteLine($"\n\nWhat: {GetEventTitle()} - {GetEventType()}\nWhy: {GetEventDescription()}\nWhen: {GetEventDateTime()}\nWhere: {GetEventAddress()}\n\n");
-    }
+    
 
     public void OutdoorFullDetails()
     {
-        Console.WriteLine($"What: {GetEventTitle()} - {GetEventType()}\nWhy: {GetEventDescription()}\nWhen: {GetEventDateTime()}\nWhere: {GetEventAddress()}");
-
+        StandardDetail();
         Console.WriteLine($"Weather Condition: {GetWeatherForecast()}\n\n");
     }
 
 
-    public void OutdoorShortDescription()
-    {
-        Console.WriteLine($"What: {GetEventTitle()} - {GetEventType()}\nWhen: {GetEventDateTime()}");
-    }
+    
+    
 
     public string GetWeatherForecast()
     {

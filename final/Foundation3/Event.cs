@@ -17,34 +17,21 @@ public class Event
 
     }
 
-    public string GetEventTitle()
-    {
-        return _eventTitle;
-    }
-
-    public string GetEventDescription()
-    {
-        return _description;
-    }
-
-    public string GetEventAddress()
-    {
-        return _address.GetAddress();
-    }
-
-    public string GetEventDateTime()
-    {
-        return _dateTime.GetDateTime();
-    }
-
-    public string GetEventType()
-    {
-        return _eventType;
-    }
+    
 
     public void SetEventType(string eventTYpe)
     {
         _eventType = eventTYpe;
+    }
+
+    public void StandardDetail()
+    {
+        Console.WriteLine($"What: {_eventTitle} - {_eventType}\nWhy: {_description}\nWhen: {_dateTime.GetDateTime()}\nWhere: {_address.GetAddress()}\n");
+    }
+
+    public void ShortDescription()
+    {
+       Console.WriteLine($"What: {_eventTitle} - {_eventType}\nWhen: {_dateTime.GetDateTime()}\n\n");
     }
 
 }

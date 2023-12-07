@@ -11,21 +11,14 @@ public class LectureEvent : Event{
     }
 
 
-    public void LectureStandardDetails()
-    {
-        Console.WriteLine($"What: {GetEventTitle()} - {GetEventType()}\nWhy: {GetEventDescription()}\nWhen: {GetEventDateTime()}\nWhere: {GetEventAddress()}\n\n");
-    }
+    
 
     public void LectureFullDetails()
     {
-        Console.WriteLine($"What: {GetEventTitle()} - {GetEventType()}\nWhy: {GetEventDescription()}\nWhen: {GetEventDateTime()}\nWhere: {GetEventAddress()}");
-
+        StandardDetail();
         Console.WriteLine($"Speaker: {_speaker}\nCapacity: {_capacity}\n\n");
 
     }
 
-    public void LectureShortDescription()
-    {
-       Console.WriteLine($"What: {GetEventTitle()} - {GetEventType()}\nWhen: {GetEventDateTime()}\n\n");
-    }
+   
 }

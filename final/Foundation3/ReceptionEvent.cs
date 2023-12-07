@@ -8,21 +8,14 @@ public class ReceptionEvent : Event
         SetEventType("Reception Event");
     }
 
-    public void ReceptionStandardDetails()
-    {
-        Console.WriteLine($"What: {GetEventTitle()} - {GetEventType()}\nWhy: {GetEventDescription()}\nWhen: {GetEventDateTime()}\nWhere: {GetEventAddress()}\n\n");
-    }
+   
 
     public void ReceptionFullDetails()
     {
-        Console.WriteLine($"What: {GetEventTitle()} - {GetEventType()}\nWhy: {GetEventDescription()}\nWhen: {GetEventDateTime()}\nWhere: {GetEventAddress()}");
-
+        StandardDetail();
         Console.WriteLine($"Register here: {_emailRegistration}\n\n");
     }
 
-    public void ReceptionShortDescription()
-    {
-        Console.WriteLine($"What: {GetEventTitle()} - {GetEventType()}\nWhen: {GetEventDateTime()}");
-    }
+    
 
 }
