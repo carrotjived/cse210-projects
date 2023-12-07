@@ -50,7 +50,7 @@ class Program
         foreach (Video video in videos)
         {
             Console.WriteLine();
-            video.ShowVideoComments();
+            video.ShowVideoComment();
         }
 
 
